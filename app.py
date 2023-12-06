@@ -10,4 +10,4 @@ def hello_world():
 
 if __name__ == '__main__':
     # Use the serve function from Waitress to run the app
-    serve(app, host='0.0.0.0', port=5000, url_scheme='http', threads=4, debug=True)
+    serve(app, host='0.0.0.0', port=5000, url_scheme='http', threads=4)
