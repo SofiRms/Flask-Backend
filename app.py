@@ -1,6 +1,11 @@
 # app.py
 from flask import Flask
-from waitress import serve 
+import os
+
+from dotenv import load_dotenv
+
+# Cargar variables de entorno desde el archivo .env
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -9,5 +14,6 @@ def hello_world():
     return '¡Hola, mundo! Este es mi primer servidor con Flask.'
 
 if __name__ == '__main__':
-    # Use the serve function from Waitress to run the app
-    serve(app, host='0.0.0.0', port=5000, url_scheme='http', threads=4)
+    from waitress import serve
+    print('Servidor ejecutándose en el puerto', os.getenv('PORT', 5000))
+    serve(app, port=os.getenv('PORT', 5000))
